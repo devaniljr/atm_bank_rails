@@ -3,7 +3,7 @@
 <%= form_with(model: @transaction, url: withdrawal_path, local: true, class:"row align-items-center w-50 m-auto") do |f| %>
   <div class="form-outline mb-4">
     <%= f.label "Quantidade", class: "form-label" %>
-    <%= f.number_field :amount, class: "form-control" %>
+    <%= f.number_field :amount, step: :any, class: "form-control" %>
   </div>
 
   <%= f.submit "Fazer o saque", class: "btn btn-primary btn-block" %>

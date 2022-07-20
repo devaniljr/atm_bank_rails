@@ -8,7 +8,7 @@
 
   <div class="form-outline mb-4">
     <%= f.label "Quantidade", class: "form-label" %>
-    <%= f.number_field :amount, class: "form-control" %>
+    <%= f.number_field :amount, step: :any, class: "form-control" %>
   </div>
 
   <%= f.submit "Fazer a transferência", class: "btn btn-primary btn-block" %>
