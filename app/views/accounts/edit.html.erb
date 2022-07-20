@@ -1,0 +1,10 @@
+<h1 class="pt-3 pb-3 text-center">Atualize os dados da sua conta</h1>
+
+<%= render "form", account: @account %>
+
+  <h2 class="pt-5 text-center">Deseja desativar sua conta?</h2>
+  <p class="text-center">Esta é uma ação irreversível, proceda com cautela.</p>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Desativar sua conta", @account, data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" }, class: "btn btn-danger text-center"%>
+</div>

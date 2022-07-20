@@ -1,0 +1,37 @@
+<div class="p-5">
+<div class="card">
+  <div class="card-body mx-4">
+    <div class="container">
+      <p class="my-5 mx-5" style="font-size: 30px;">Transação realizada com sucesso!</p>
+      <div class="row">
+        <ul class="list-unstyled">
+          <li class="text-black"><%= @transaction.account.name if @transaction.account %></li>
+          <li class="text-muted mt-1"><span class="text-black">Transação</span> #<%= @transaction.id %></li>
+          <li class="text-black mt-1"><%= @transaction.created_at %></li>
+        </ul>
+        <hr>
+        <div class="col-xl-10">
+          <p><%= @transaction.type_of_transaction %><%= " para #{@transaction.destination}" if !@transaction.destination.empty? %></p>
+        </div>
+        <div class="col-xl-2">
+          <p class="float-end"><%= number_to_currency(@transaction.amount, unit: "R$", separator: ",", delimiter: "") %>
+          </p>
+        </div>
+        <hr>
+      </div>
+      <% if @transaction.type_of_transaction == "Transferência" %>
+      <div class="row">
+        <div class="col-xl-10">
+          <p>Taxa de transferência</p>
+        </div>
+        <div class="col-xl-2">
+          <p class="float-end"><%= number_to_currency(@transaction.transference_tax, unit: "R$", separator: ",", delimiter: "") %>
+          </p>
+        </div>
+        <hr>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

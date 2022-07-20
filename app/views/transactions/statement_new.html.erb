@@ -1,0 +1,15 @@
+<h1 class="pt-3 pb-3 text-center">Insira a data dos dados desejados</h1>
+
+<%= form_with(url: statement_receipt_path, local: true, :method => :get, class:"row align-items-center w-50 m-auto") do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.label "Data de início", class: "form-label" %>
+    <%= f.date_select :date_from, class: "form-control" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= f.label "Data final", class: "form-label" %>
+    <%= f.date_select :date_to, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Criar seu extrato", class: "btn btn-primary btn-block" %>
+<% end %>

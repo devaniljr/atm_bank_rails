@@ -1,0 +1,15 @@
+<h1 class="text-center pt-3 pb-3">Faça uma transferência</h1>
+
+<%= form_with(model: @transaction, url: transference_path, local: true, class:"row align-items-center w-50 m-auto") do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.label "E-mail do destinatário", class: "form-label" %>
+    <%= f.text_field :destination, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= f.label "Quantidade", class: "form-label" %>
+    <%= f.number_field :amount, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Fazer a transferência", class: "btn btn-primary btn-block" %>
+<% end %>

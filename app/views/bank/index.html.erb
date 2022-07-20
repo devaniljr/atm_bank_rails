@@ -1,0 +1,64 @@
+<h1 class="p-3">Bem vindo ao Banco Nobe<%= ", #{current_user.name}" if current_user %></h1>
+
+<div class="container">
+  <div class="row gap-3">
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "deposito.jpg", class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title">Depósito</h5>
+          <p class="card-text">Deposite aqui o seu dinheiro físico.</p>
+          <%= link_to "Faça um depósito", deposit_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <% if current_user %>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "saque.jpeg", class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title">Saque</h5>
+          <p class="card-text">Faça uma retirada de dinheiro direto da sua conta.</p>
+          <%= link_to "Faça um saque", withdrawal_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "transferencia.jpg", class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title">Transferência</h5>
+          <p class="card-text">Transfira dinheiro para outra Conta Nobe.</p>
+          <%= link_to "Faça uma transferência", transference_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "saldo.jpg", class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title">Saldo</h5>
+          <p class="card-text">Confira aqui quanto dinheiro você tem na sua conta.</p>
+          <%= link_to "Confira seu saldo", balance_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "extrato.jpg", class:"card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title">Extrato</h5>
+          <p class="card-text">Veja com detalhes as transações da sua conta.</p>
+          <%= link_to "Veja seu extrato", statement_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</div>

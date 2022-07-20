@@ -1,0 +1,15 @@
+<%= form_with(url: session_path, local: true, class:"row align-items-center w-50 m-auto") do |f| %>
+  <h1 class="pt-3">Entre na sua conta</h1>
+
+  <div class="form-outline mb-4">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= f.label :password, class: "form-label"%>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Entrar", class: "btn btn-primary btn-block" %>
+<% end %>

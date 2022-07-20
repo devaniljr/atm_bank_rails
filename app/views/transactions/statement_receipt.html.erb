@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tipo da Transação</th>
+      <th scope="col">Data da Transação</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Destinatário</th>
+      <th scope="col">Taxa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @statement.each do |s| %>
+    <tr>
+      <th scope="row"><%= s.id %>
+      <td><%= s.type_of_transaction %></td>
+      <td><%= s.created_at.strftime("%d/%m/%Y") %></td>
+      <td><%= number_to_currency(s.amount, unit: "R$", separator: ",", delimiter: "") %></td>
+      <td><%= s.destination if !s.destination.empty? %></td>
+      <td><%= s.transference_tax if !s.destination.empty? %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

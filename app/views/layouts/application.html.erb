@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BancoNobe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="p-3 text-white" style="background-color: #142460;">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between ">
+          <div>
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <%= image_tag "logo.png" %>
+          </a>
+          </div>
+
+          <div>
+            <% if current_user %>
+              <%= link_to "Edite sua conta", edit_account_path(current_user), class: "btn btn-outline-light me-" %>
+              <%= link_to "Sair", session_path, data: { turbo_method: :delete }, class: "btn btn-outline-light"%>
+            <% else %>
+              <%= link_to "Acesse sua conta", signin_path, class: "btn btn-outline-light me-2" %>
+              <%= link_to "Abra sua conta", signup_path, class: "btn btn-warning" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container pb-5">
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </div>
+
+    <footer class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      <p>Projeto desenvolvido para teste corporativo. Todas as informações e imagens utilizadas não tem fins comerciais.</p>
+    </footer>
+  </body>
+</html>
