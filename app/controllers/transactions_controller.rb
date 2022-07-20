@@ -15,10 +15,10 @@ class TransactionsController < ApplicationController
         destination.save
         redirect_to transaction_receipt_path(@transaction), notice: "Depósito realizado com sucesso"
       else
-        render :deposit_new, status: :unprocessable_entity
+        redirect_to deposit_new_path, status: :unprocessable_entity, alert: "Não encontramos essa conta!"
       end
     else
-      render :deposit_new, status: :unprocessable_entity
+      redirect_to deposit_new_path, status: :unprocessable_entity, alert: "Não foi possível realizar sua transação!"
     end
 
   end
