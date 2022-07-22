@@ -7,19 +7,19 @@ Rails.application.routes.draw do
   get "signup" => "accounts#new"
   get "signin" => "sessions#new"
 
-  get "deposit" => "transactions#deposit_new"
-  post "deposit" => "transactions#deposit_create"
+  get "deposit" => "deposit#new"
+  post "deposit" => "deposit#create"
 
-  get "withdrawal" => "transactions#withdrawal_new"
-  post "withdrawal" => "transactions#withdrawal_create"
+  get "withdrawal" => "withdrawal#new"
+  post "withdrawal" => "withdrawal#create"
 
-  get "transference" => "transactions#transference_new"
-  post "transference" => "transactions#transference_create"
+  get "transference" => "transference#new"
+  post "transference" => "transference#create"
 
   get "balance" => "transactions#check_balance"
 
-  get "statement" => "transactions#statement_new"
-  get "statement_receipt" => "transactions#statement_receipt"
+  get "statement" => "statement#new"
+  get "statement_receipt" => "statement#receipt"
 
   get "transaction/:id" => "transactions#receipt", as: "transaction_receipt"
 end
